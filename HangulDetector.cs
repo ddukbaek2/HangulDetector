@@ -191,7 +191,7 @@ namespace HangulDetector
 		private void CreateReportToFile(string reportFileDirectory, bool sort = true)
 		{
 			// 저장 경로가 없을 경우 실행 파일 위치로 생성.
-			if (string.IsNullOrWhiteSpace(reportFileDirectory))
+			if (!Directory.Exists(reportFileDirectory))
 			{
 				var assembly = Assembly.GetExecutingAssembly();
 				reportFileDirectory = Path.GetDirectoryName(assembly.Location).Replace(HangulDetector.BackSlash, HangulDetector.Slash);
